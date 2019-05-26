@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>餐饮服务配送中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<!--标题-->
+				<header class="bar bar-nav">
+					<a class="button button-link button-nav pull-left back" href="#">
+						<span class="icon icon-left"></span> 返回
+					</a>
+					<h1 class="title">尊敬的用户</h1>
+				</header>
+				<!--底部按钮-->
+				<div class="bar bar-footer-secondary">
+					<a id="logout" class="button button-fill button-danger button-block" href="#">退出</a>
+				</div>
+				<!--工具栏-->
+				<nav class="bar bar-tab">
+					<!--active 为活跃状态-->
+					<a class="tab-item external" href="/user/index">
+						<span class="icon icon-home"></span>
+						<span class="tab-label">首页</span>
+					</a>
+					<a class="tab-item external" href="/user/shopCart">
+						<span class="icon icon-cart"></span>
+						<span class="tab-label">购物车</span>
+					</a>
+					<a class="tab-item external open-panel active" href="/user/personalCenter">
+						<span class="icon icon-me"></span>
+						<span class="tab-label">个人中心</span>
+					</a>
+				</nav>
+				<div class="content">
+
+					<div class="content-block">
+						<div class="card">
+							<div class="card-content">
+								<div class="list-block">
+									<ul>
+										<li>
+											<a href="purchaseHistory" class="item-link item-content external">
+												<div class="item-media"><i class="icon icon-f7"></i></div>
+												<div class="item-inner">
+													<div class="item-title">消费记录</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-content">
+								<div class="list-block">
+									<ul>
+										<li>
+											<a href="modifyPerson" class="item-link item-content external">
+												<div class="item-media"><i class="icon icon-f7"></i></div>
+												<div class="item-inner">
+													<div class="item-title">编辑个人信息</div>
+												</div>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<!--content-->
+				</div>
+
+				<!--page-current-->
+			</div>
+			<!--page-group-->
+		</div>
+
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="../resources/js/common/common.js"></script>
+		<script type="text/javascript" src="../resources/js/user/personalCenter.js"></script>
+	</body>
+
+</html>

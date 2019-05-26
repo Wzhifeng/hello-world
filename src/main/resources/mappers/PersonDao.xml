@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.PersonDao">
+    <select id="queryPersonList" resultType="cn.entity.Person">
+        SELECT *
+        FROM tb_person_info
+    </select>
+
+    <insert id="insertPerson" parameterType="cn.entity.Person">
+        INSERT INTO tb_person_info 
+        (
+         account,
+         username,
+         password,
+         email,
+         phone,
+         gender,
+         question,
+         answer,
+         user_type,
+         user_img,
+         create_time,
+         update_time
+         )
+         VALUES
+         (
+          #{person.account},
+          #{person.username},
+          #{person.password},
+          #{person.email},
+          #{person.phone},
+          #{person.gender},
+          #{person.question},
+          #{person.answer},
+          #{person.userType},
+          #{person.userImg},
+          now(),
+          now()
+         )
+    </insert>
+
+    <select id="checkPersonByAccountAndPassword" parameterType="cn.entity.Person" resultType="java.lang.Integer">
+        SELECT user_id
+        FROM tb_person_info
+        WHERE account = #{person.account} And password = #{person.password}
+    </select>
+
+    <select id="selectPersonById" parameterType="java.lang.Integer" resultType="cn.entity.Person">
+      SELECT 
+      user_id,
+      account,
+      username,
+      password,
+      email,
+      phone,
+      gender,
+      question,
+      answer,
+      user_type,
+      user_img,
+      create_time,
+      update_time
+      FROM tb_person_info
+      WHERE user_id = #{userId}
+    </select>
+
+    <update id="updatePerson" parameterType="cn.entity.Person">
+        UPDATE tb_person_info
+        <set>
+            <if test="person.username!=null">username = #{person.username},</if>
+            <if test="person.password!=null">password= #{person.password},</if>
+            <if test="person.email!=null">email = #{person.email},</if>
+            <if test="person.phone!=null">phone = #{person.phone},</if>
+            <if test="person.question!=null">question = #{person.question},</if>
+            <if test="person.answer!=null">answer = #{person.answer},</if>
+            <if test="person.updateTime!=null">update_time = #{person.updateTime}</if>
+        </set>
+        where user_id = #{person.userId}
+    </update>
+</mapper>

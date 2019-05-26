@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.ShopDao">
+    <select id="queryShopByUserId" parameterType="integer" resultType="cn.entity.Shop">
+        SELECT *
+        FROM tb_shop
+        WHERE shop_owner_id = #{userId}
+    </select>
+    <select id="queryShopList" resultType="cn.entity.Shop">
+         SELECT *
+        FROM tb_shop
+    </select>
+    <select id="queryShopById" resultType="cn.entity.Shop">
+        SELECT *
+        FROM tb_shop
+        WHERE shop_id = #{shopId}
+    </select>
+    <select id="queryShopByShopCondition" resultType="cn.entity.Shop" parameterType="cn.entity.Shop">
+        SELECT * FROM tb_shop
+        <where>
+            <if test="shopCondition.shopId!=null">and shop_id = #{shopCondition.shopId}</if>
+            <if test="shopCondition.shopOwnerId!=null">and shop_owner_id = #{shopCondition.shopOwnerId}</if>
+            <if test="shopCondition.shopCategoryId!=null">and shop_category_id = #{shopCondition.shopCategoryId}</if>
+            <if test="shopCondition.businessStatus!=null">and business_status = #{shopCondition.businessStatus}</if>
+            <if test="shopCondition.enableStatus!=null">and enable_status = #{shopCondition.enableStatus}</if>
+            <if test="shopCondition.shopPhone!=null">and shop_phone = #{shopCondition.shopPhone}</if>
+            <if test="shopCondition.shopName!=null">and shop_name like "%${shopCondition.shopName}%"</if>
+            <if test="shopCondition.shopDesc!=null">or shop_desc like "%${shopCondition.shopDesc}%"</if>
+            <if test="shopCondition.shopAddr!=null">or shop_addr like "%${shopCondition.shopAddr}%"</if>
+        </where>
+    </select>
+
+
+    <insert id="insertShop" parameterType="cn.entity.Shop" useGeneratedKeys="true"
+            keyColumn="shop_id" keyProperty="shop.shopId">
+        INSERT INTO tb_shop
+        (
+            shop_id,
+            shop_owner_id,
+            shop_category_id,
+            shop_name,
+            shop_desc,
+            shop_img,
+            shop_addr,
+            shop_phone,
+            enable_status,
+            business_status,
+            create_time,
+            update_time
+        )
+        VALUES
+        (
+          #{shop.shopId},
+          #{shop.shopOwnerId},
+          #{shop.shopCategoryId},
+          #{shop.shopName},
+          #{shop.shopDesc},
+          #{shop.shopImg},
+          #{shop.shopAddr},
+          #{shop.shopPhone},
+          #{shop.enableStatus},
+          #{shop.businessStatus},
+          now(),
+          now()
+        );
+    </insert>
+
+    <update id="updateShop" parameterType="cn.entity.Shop">
+        UPDATE tb_shop
+        <set>
+            <if test="shop.shopCategoryId != null">shop_category_id = #{shop.shopCategoryId},</if>
+            <if test="shop.shopName != null">shop_name = #{shop.shopName},</if>
+            <if test="shop.shopDesc != null">shop_desc = #{shop.shopDesc},</if>
+            <if test="shop.shopImg != null">shop_img = #{shop.shopImg},</if>
+            <if test="shop.shopAddr != null">shop_addr = #{shop.shopAddr},</if>
+            <if test="shop.shopPhone != null">shop_phone = #{shop.shopPhone},</if>
+            <if test="shop.enableStatus != null">enable_status = #{shop.enableStatus},</if>
+            <if test="shop.businessStatus != null">business_status = #{shop.businessStatus},</if>
+            <if test="shop.updateTime != null">update_time = now()</if>
+        </set>
+        WHERE shop_id = #{shop.shopId}
+    </update>
+
+</mapper>

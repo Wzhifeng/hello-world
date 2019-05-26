@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.ShopCategoryDao">
+
+    <insert id="insertShopCategory" parameterType="cn.entity.ShopCategory" useGeneratedKeys="true"
+            keyColumn="shop_category_id" keyProperty="shopCategory.shopCategoryId">
+        INSERT INTO tb_shop_category
+        (
+        shop_category_name,
+        shop_category_desc,
+        shop_category_img,
+        priority,
+        parent_id,
+        create_time,
+        update_time
+        )
+        VALUES
+        (
+          #{shopCategory.shopCategoryName},
+          #{shopCategory.shopCategoryDesc},
+          #{shopCategory.shopCategoryImg},
+          #{shopCategory.priority},
+          #{shopCategory.parentId},
+          now(),
+          now()
+        )
+    </insert>
+
+    <update id="updateShopCategory" parameterType="cn.entity.ShopCategory">
+        UPDATE tb_shop_category
+        <set>
+            <if test="shopCategory.shopCategoryName != null">shop_category_name = #{shopCategory.shopCategoryName},</if>
+            <if test="shopCategory.shopCategoryDesc != null">shop_category_desc = #{shopCategory.shopCategoryDesc},</if>
+            <if test="shopCategory.shopCategoryImg != null">shop_category_img = #{shopCategory.shopCategoryImg},</if>
+            <if test="shopCategory.priority != null">priority = #{shopCategory.priority},</if>
+            <if test="shopCategory.parentId != null">parent_id = #{shopCategory.parentId},</if>
+            <if test="shopCategory.updateTime != null">update_time = now()</if>
+        </set>
+        WHERE shop_category_id = #{shopCategory.shopCategoryId}
+    </update>
+    <delete id="deleteShopCategoryById" parameterType="integer">
+        DELETE FROM
+        tb_shop_category
+        WHERE shop_category_id = #{shopCategoryId}
+    </delete>
+
+    <select id="queryShopCategoryList" resultType="cn.entity.ShopCategory">
+      SELECT *
+      FROM tb_shop_category
+      GROUP BY priority DESC
+    </select>
+
+    <select id="queryShopCategoryById" resultType="cn.entity.ShopCategory" parameterType="integer">
+        SELECT *
+      FROM tb_shop_category
+      WHERE shop_category_id = #{shopCategoryId}
+    </select>
+
+</mapper>

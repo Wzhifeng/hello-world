@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>餐饮服务配送中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/css/common/common.css" />
+		<link rel="stylesheet" type="text/css" href="../resources/css/user/clearing.css" />
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav">
+					<a class="button button-link button-nav pull-left back" href="#">
+						<span class="icon icon-left"></span> 返回
+					</a>
+					<h1 class="title">结算</h1>
+				</header>
+				<div class="bar bar-footer-secondary">
+					<div class="row">
+						<div class="col-50 my-margin-buttom">
+							<p class="my-margin-0">
+								<a href="#" id="submit" class="button button-fill button-danger external">确定</a>
+							</p>
+						</div>
+						<div class="col-50">
+							<p class="my-margin-0">
+								<a href="index" class="button button-fill button-warning external">取消</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<nav class="bar bar-tab">
+					<a class="tab-item external" href="/user/index">
+						<span class="icon icon-home"></span>
+						<span class="tab-label">首页</span>
+					</a>
+					<a class="tab-item external" href="/user/shopCart">
+						<span class="icon icon-cart"></span>
+						<span class="tab-label">购物车</span>
+					</a>
+					<a class="tab-item external" href="/user/personalCenter">
+						<span class="icon icon-me"></span>
+						<span class="tab-label">个人中心</span>
+					</a>
+				</nav>
+				<div class="content">
+					<!--就食方式-->
+					<div class="row my-level-padding">
+						<div class="col-50">
+							<p>
+								<a href="#" id="eatInSide" data-value="0"  class="button button-fill external repast-way">堂食</a>
+							</p>
+						</div>
+						<div class="col-50">
+							<p>
+								<a href="#" id="takeout" data-value="1" class="button external repast-way">外带</a>
+							</p>
+						</div>
+					</div>
+
+					<!--下单商品-->
+					<div class="list-block media-list">
+						<ul>
+							<li>
+								<div class="item-content">
+									<div class="item-media"><img id="productImg" class="my-img-size" src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+									<div class="item-inner">
+										<div class="item-title-row">
+											<div class="item-title" id="productName">特仑苏</div>
+											<div class="item-after">￥<span id="price">6</span></div>
+										</div>
+										<div class="item-title-row my-margin-top">
+											<div class="item-subtitle" id="productDesc">不是每瓶牛奶都是特仑苏</div>
+											<small><div class="item-after">数量x<span id="number">1</span></div></small>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<!--备注-->
+					<div class="list-block">
+						<ul>
+							<li class="align-top">
+								<div class="item-content">
+									<div class="item-media"><i class="icon icon-form-comment"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">备注</div>
+										<div class="item-input">
+											<textarea id="remark"></textarea>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<!--content-->
+					</div>
+
+					<!--page-current-->
+				</div>
+				<!--page-group-->
+			</div>
+
+			<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+			<script type="text/javascript" src="../resources/js/common/common.js"></script>
+			<script type="text/javascript" src="../resources/js/user/clearing.js"></script>
+	</body>
+
+</html>

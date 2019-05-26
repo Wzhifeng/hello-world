@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.CommentDao">
+    <insert id="insertComment">
+        INSERT INTO tb_comment
+        (
+         comment_content,
+         product_id,
+         user_id,
+         create_time,
+         update_time
+         )
+         VALUES
+         (
+         #{comment.commentContent},
+         #{comment.productId},
+         #{comment.userId},
+         now(),
+         now()
+         );
+    </insert>
+
+    <select id="queryCommentByCommentCondition" resultType="cn.entity.Comment">
+        SELECT * FROM tb_comment
+        <where>
+            <if test="commentCondition.commentId!=null">and comment_id = #{commentCondition.commentId}</if>
+            <if test="commentCondition.productId!=null">and product_id = #{commentCondition.productId}</if>
+            <if test="commentCondition.userId!=null">and user_id = #{commentCondition.userId}</if>
+        </where>
+    </select>
+    <select id="queryCommentByProductIdList" resultType="cn.entity.Comment">
+        SELECT * FROM tb_comment
+        WHERE product_id IN
+        <foreach item="item" index="index" open="(" separator="," close=")" collection="productIdList">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.OrderDao">
+
+    <insert id="insertOrder" parameterType="cn.entity.Order">
+        INSERT INTO tb_order
+        (
+        order_no,
+        user_id,
+        product_id,
+        shop_id,
+        number,
+        payment,
+        remark,
+        repast_way,
+        order_status,
+        payment_type,
+        create_time,
+        update_time
+        )
+        VALUES
+        (
+        #{order.orderNo},
+        #{order.userId},
+        #{order.productId},
+        #{order.shopId},
+        #{order.number},
+        #{order.payment},
+        #{order.remark},
+        #{order.repastWay},
+        #{order.orderStatus},
+        #{order.paymentType},
+        now(),
+        now()
+        );
+    </insert>
+    <update id="updateOrder" parameterType="cn.entity.Order">
+        UPDATE tb_order
+        <set>
+            <if test="order.orderStatus!=null">order_status = #{order.orderStatus},</if>
+            <if test="order.updateTime!=null">update_time= now()</if>
+        </set>
+        WHERE order_no = #{order.orderNo}
+    </update>
+    <select id="queryOrderByShopId" resultType="cn.entity.Order">
+        SELECT * FROM tb_order
+        WHERE shop_id = #{shopId} and order_status = 1000
+        ORDER By create_time DESC;
+    </select>
+    <select id="queryOrderByUserId" resultType="cn.entity.Order">
+        SELECT * FROM tb_order
+        WHERE user_id = #{userId}
+    </select>
+    <select id="queryOrderByYear" parameterType="map" resultType="cn.entity.Order">
+      SELECT *
+      FROM tb_order
+      WHERE YEAR(create_time) = YEAR(#{date})
+      and shop_id =#{shopId};
+    </select>
+    <select id="queryOrderByMonth" parameterType="map" resultType="cn.entity.Order">
+      SELECT *
+      FROM tb_order
+      WHERE YEAR(create_time) = YEAR(#{date})
+      and MONTH(create_time) = MONTH(#{date})
+      and shop_id =#{shopId};
+    </select>
+    <select id="queryOrderByDay" parameterType="map" resultType="cn.entity.Order">
+      SELECT *
+      FROM tb_order
+      WHERE DATE(create_time) = DATE(#{date})
+      and shop_id =#{shopId};
+    </select>
+    <select id="queryAllOrders" parameterType="integer" resultType="cn.entity.Order">
+        SELECT *
+        FROM tb_order
+        WHERE shop_id = #{shopId};
+    </select>
+
+    <select id="queryAllSales" parameterType="integer" resultType="cn.entity.Order">
+        SELECT product_id, shop_id, SUM(number) AS number
+        FROM tb_order
+        WHERE shop_id = #{shopId}
+        GROUP BY product_id
+        ORDER BY number;
+    </select>
+
+    <select id="querySalesByYear" parameterType="map" resultType="cn.entity.Order">
+        SELECT product_id, shop_id, SUM(number) AS number
+        FROM tb_order
+        WHERE shop_id = #{shopId}
+        AND YEAR(create_time) = YEAR(#{date})
+        GROUP BY product_id
+        ORDER BY number;
+    </select>
+
+    <select id="querySalesByMonth" parameterType="map" resultType="cn.entity.Order">
+        SELECT product_id, shop_id, SUM(number) AS number
+        FROM tb_order
+        WHERE shop_id = #{shopId}
+        AND YEAR(create_time) = YEAR(#{date})
+        AND MONTH(create_time) = MONTH(#{date})
+        GROUP BY product_id
+        ORDER BY number;
+    </select>
+
+    <select id="querySalesByDay" parameterType="map" resultType="cn.entity.Order">
+        SELECT product_id, shop_id, SUM(number) AS number
+        FROM tb_order
+        WHERE shop_id = #{shopId}
+        AND DATE(create_time) = DATE(#{date})
+        GROUP BY product_id
+        ORDER BY number;
+    </select>
+</mapper>

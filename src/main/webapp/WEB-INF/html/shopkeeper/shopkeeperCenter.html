@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>餐饮服务配送中心</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+
+</head>
+
+<body>
+<div class="page-group ">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <!--<button class="button pull-left" id="business">-->
+            <!--营业中-->
+            <!--</button>-->
+            <h1 class="title">商家管理中心</h1>
+            <a class="button button-link button-nav pull-right external" href="/shopkeeper/modifyShop">
+                编辑商铺资料
+                <span class="icon icon-settings"></span>
+            </a>
+        </header>
+        <div class="bar bar-footer-secondary">
+            <a id="logout" class="button button-fill button-danger button-block" href="#">退出</a>
+        </div>
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="/shopkeeper/newOrder">
+                <span class="icon icon-app"></span>
+                <span class="tab-label">新的订单</span>
+            </a>
+            <a class="tab-item external active" href="/shopkeeper/shopkeeperCenter">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">商家中心</span>
+            </a>
+        </nav>
+        <div class="content">
+            <div class="content-block">
+                <div class="row">
+                    <div class="col-50">
+                        <p>
+                            <a id="productCategoryList" href="#" class="button button-danger button-big button-fill">商品分类列表</a>
+                        </p>
+                    </div>
+
+                    <div class="col-50">
+                        <p>
+                            <a id="addProductCategory" href="#" class="button button-danger button-big button-fill">新增商品分类</a>
+                        </p>
+                    </div>
+                    <div class="col-50">
+                        <p>
+                            <a id="productList" href="#" class="button button-danger button-big button-fill external">商品列表</a>
+                        </p>
+                    </div>
+
+                    <div class="col-50">
+                        <p>
+                            <a id="addProduct" href="#" class="button button-danger button-big button-fill external">新增商品</a>
+                        </p>
+                    </div>
+
+                    <div class="col-50">
+                        <p>
+                            <a id="financialStatement" href="#"
+                               class="button button-danger button-big button-fill external">财务报表</a>
+                        </p>
+                    </div>
+
+                    <div class="col-50">
+                        <p>
+                            <a id="customerComments" href="#"
+                               class="button button-danger button-big button-fill">客户评论</a>
+                        </p>
+                    </div>
+
+                    <div class="col-50">
+                        <p>
+                            <a id="createShop" href="#" class="button button-danger button-big button-fill">创建商铺</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--content-->
+        </div>
+
+        <!--page-current-->
+    </div>
+    <!--page-group-->
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="../resources/js/common/common.js"></script>
+<script type="text/javascript" src="../resources/js/shopkeeper/shopkeeperCenter.js"></script>
+</body>
+
+</html>

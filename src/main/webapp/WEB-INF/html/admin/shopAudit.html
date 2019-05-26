@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>餐饮服务配送中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/css/admin/shopAudit.css" />
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav">
+					<a class="button button-link button-nav pull-left back" href="#">
+						<span class="icon icon-left"></span> 返回
+					</a>
+					<h1 class="title">商店审核</h1>
+				</header>
+				<nav class="bar bar-tab">
+					<a class="tab-item external active" href="adminCenter">
+						<span class="icon icon-me"></span>
+						<span class="tab-label">管理员中心</span>
+					</a>
+				</nav>
+				<div class="content">
+					<div class="content-block">
+						<div class="row">
+							<div class="col-33">
+								商店名称
+							</div>
+							<div class="col-33">
+								审核状态
+							</div>
+							<div class="col-33">
+								操作
+							</div>
+						</div>
+
+						<!--从后台获取商品数据-->
+						<div class="shopList-wrap">
+							<div class="row shop-row">
+								<div class="col-33">
+									肯德基
+								</div>
+								<div class="col-33">
+									等待审核
+								</div>
+								<div class="col-33">
+									<a href="#" class="external" data-id="" data-status="">通过</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!--content-->
+				</div>
+
+				<!--page-current-->
+			</div>
+			<!--page-group-->
+		</div>
+
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="../resources/js/admin/shopAudit.js"></script>
+
+	</body>
+
+</html>

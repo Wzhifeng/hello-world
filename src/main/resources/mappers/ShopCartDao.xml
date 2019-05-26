@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.ShopCartDao">
+
+    <insert id="insertShopCart" parameterType="cn.entity.ShopCart">
+        INSERT INTO tb_shop_cart
+        (
+        product_id,
+        number,
+        user_id,
+        create_time,
+        update_time
+        )
+        VALUES
+        (
+        #{shopCart.productId},
+        #{shopCart.number},
+        #{shopCart.userId},
+        now(),
+        now()
+        );
+    </insert>
+    <update id="updateShopCart" parameterType="cn.entity.ShopCart">
+        UPDATE tb_shop_cart
+        <set>
+            <if test="shopCartCondition.number != null">number = #{shopCartCondition.number},</if>
+            <if test="shopCartCondition.updateTime != null">update_time = #{shopCartCondition.updateTime}</if>
+        </set>
+        where shop_cart_id = #{shopCartCondition.shopCartId}
+        and product_id  = #{shopCartCondition.productId}
+    </update>
+    <delete id="deleteShopCart">
+        DELETE FROM tb_shop_cart
+        WHERE product_id = #{productId}
+        and user_id = #{userId}
+    </delete>
+    <select id="queryShopCaryByCondition" resultType="cn.entity.ShopCart" parameterType="cn.entity.ShopCart">
+        SELECT * FROM tb_shop_cart
+        <where>
+            <if test="shopCartCondition.shopCartId != null">and shop_cart_id = #{shopCartCondition.shopCartId}</if>
+            <if test="shopCartCondition.productId != null">and product_id = #{shopCartCondition.productId}</if>
+            <if test="shopCartCondition.number != null">and number = #{shopCartCondition.number}</if>
+            <if test="shopCartCondition.userId != null">and user_id = #{shopCartCondition.userId}</if>
+        </where>
+    </select>
+</mapper>

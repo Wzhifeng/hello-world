@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.HeadLineDao">
+    <insert id="insertHeadLine">
+        INSERT INTO tb_head_line (
+        priority,
+        shop_id,
+        create_time,
+        update_time
+        ) VALUES
+        (
+        #{priority},
+        #{shopId},
+        now(),
+        now()
+        );
+    </insert>
+    <delete id="deleteHeadLine">
+        DELETE FROM tb_head_line
+        WHERE priority = #{priority}
+    </delete>
+    <select id="queryHeadLineByPriority" resultType="cn.entity.HeadLine">
+        SELECT * FROM tb_head_line
+        WHERE priority = #{priority}
+    </select>
+</mapper>

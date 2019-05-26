@@ -1,0 +1,12 @@
+.productList-wrap {
+    margin-top: .5rem;
+}
+
+.productList-row {
+    border-top: 1px solid gray;
+    padding: .5rem 0 .5rem 0;
+}
+
+.productList-row:last-child {
+    border-bottom: 1px solid gray;
+}

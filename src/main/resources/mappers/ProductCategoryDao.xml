@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.ProductCategoryDao">
+    <insert id="insertProductCategory" parameterType="cn.entity.ProductCategory">
+        INSERT INTO tb_product_category
+        (
+        product_category_name,
+        priority, shop_id,
+        create_time,
+        update_time
+        )
+        VALUES
+        (
+        #{productCategory.productCategoryName},
+        #{productCategory.priority},
+        #{productCategory.shopId},
+        now(),
+        now()
+        );
+    </insert>
+
+    <select id="queryProductCategoryList" resultType="cn.entity.ProductCategory">
+        SELECT *
+        FROM tb_product_category
+        WHERE shop_id = #{shopId}
+    </select>
+
+    <select id="queryProductCategoryById" parameterType="integer" resultType="cn.entity.ProductCategory">
+        SELECT *
+        FROM tb_product_category
+        WHERE product_category_id = #{productCategoryId}
+    </select>
+
+    <update id="updateProductCategory" parameterType="cn.entity.ProductCategory">
+        UPDATE tb_product_category
+        <set>
+            <if test="productCategory.productCategoryName != null">
+                product_category_name=#{productCategory.productCategoryName},
+            </if>
+            <if test="productCategory.priority != null">priority=#{productCategory.priority},</if>
+            <if test="productCategory.updateTime != null">update_time=now()</if>
+        </set>
+        WHERE product_category_id = #{productCategory.productCategoryId}
+    </update>
+
+    <delete id="deleteProductCategory" parameterType="integer">
+        DELETE FROM tb_product_category
+        WHERE product_category_id = #{productCategoryId}
+    </delete>
+</mapper>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>餐饮服务配送中心</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+    <link rel="stylesheet" type="text/css" href="../resources/css/common/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../resources/css/user/productDetail.css"/>
+</head>
+
+<body>
+<div class="page-group">
+    <div class="page page-current">
+        <header class="bar bar-nav">
+            <a class="button button-link button-nav pull-left back" href="#">
+                <span class="icon icon-left"></span> 返回
+            </a>
+            <h1 id="productName" class="title">产品名称</h1>
+        </header>
+
+        <!--底部按钮-->
+        <!--加入购物车、立即购买-->
+        <div class="bar bar-footer-secondary">
+            <div class="row">
+                <div class="col-50 my-margin-buttom">
+                    <p class="my-margin-0">
+                        <a href="#" id="buy" class="button button-fill button-danger external">立即购买</a>
+                    </p>
+                </div>
+                <div class="col-50">
+                    <p class="my-margin-0">
+                        <a href="#" id="addShopCart" class="button button-fill button-warning external">加入购物车</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="bar bar-tab">
+            <a class="tab-item external" href="/user/index">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">首页</span>
+            </a>
+            <a class="tab-item external" href="/user/shopCart">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">购物车</span>
+            </a>
+            <a class="tab-item external" href="/user/personalCenter">
+                <span class="icon icon-me"></span>
+                <span class="tab-label">个人中心</span>
+            </a>
+        </nav>
+        <div class="content">
+
+            <!--商品详情与评论-->
+            <div class="buttons-tab">
+                <a href="#tab1" class="tab-link active button">商品详情</a>
+                <a href="#tab2" class="tab-link button">客户评价</a>
+            </div>
+            <div class="tabs">
+                <div id="tab1" class="tab active">
+
+                    <!--商品详情-->
+                    <div class="card demo-card-header-pic">
+                        <div valign="bottom" class="card-header color-white no-border no-padding">
+                            <img id="productImg" class='card-cover product-img-size' src="" alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-content-inner">
+                                <p id="productDesc">商品描述: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Explicabo laborum laudantium dicta iste magni natus saepe nisi reprehenderit neque
+                                    unde. Ducimus voluptas neque quos nulla consequatur cumque earum pariatur a.</p>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="link">赞<span class="badge" id="praise">2</span></a>
+                            <a href="#" class="link">销量<span class="badge" id="sales">2</span></a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="tab2" class="tab">
+                    <div class="card">
+                        <div class="card-header">王泽境:</div>
+                        <div class="card-content">
+                            <div class="card-content-inner">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Non veniam odit repudiandae sit rem adipisci architecto quam impedit facere molestiae.
+                                Esse deserunt totam nostrum possimus temporibus nihil modi consequuntur non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--content-->
+        </div>
+
+        <!--page-current-->
+    </div>
+    <!--page-group-->
+</div>
+
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+<script type="text/javascript" src="../resources/js/common/common.js"></script>
+<script type="text/javascript" src="../resources/js/user/productDetail.js"></script>
+</body>
+
+</html>

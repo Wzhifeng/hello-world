@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>餐饮服务配送中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" type="text/css" href="../resources/css/common/common.css" />
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav">
+					<h1 class="title">管理员中心</h1>
+				</header>
+
+				<!--退出-->
+				<div class="bar bar-footer-secondary">
+					<a id="logout" class="button button-fill button-danger button-block external" href="#">退出</a>
+				</div>
+
+				<nav class="bar bar-tab">
+					<!--active 为活跃状态-->
+					<a class="tab-item external open-panel active" href="/admin/adminCenter">
+						<span class="icon icon-me"></span>
+						<span class="tab-label">管理员中心</span>
+					</a>
+				</nav>
+
+				<div class="content">
+					<div class="content-block">
+						<div class="row">
+							<div class="col-50">
+								<p>
+									<a href="/admin/shopAudit" class="button button-danger button-big button-fill external">商店审核</a>
+								</p>
+							</div>
+							<div class="col-50">
+								<p>
+									<a href="/admin/headLine"  class="button button-danger button-big button-fill external">头条模块</a>
+								</p>
+							</div>
+							<div class="col-50">
+								<p>
+									<a href="#" id="shopCategoryList" class="button button-danger button-big button-fill external">商铺分类列表</a>
+								</p>
+							</div>
+							<div class="col-50">
+								<p>
+									<a href="#" id="addShopCategory" class="button button-danger button-big button-fill external">增加商铺分类</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!--content-->
+				</div>
+
+				<!--page-current-->
+			</div>
+			<!--page-group-->
+		</div>
+
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src="../resources/js/admin/admin.js"></script>
+		<script type="text/javascript" src="../resources/js/common/common.js"></script>
+	</body>
+
+</html>

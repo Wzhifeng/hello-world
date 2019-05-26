@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.dao.ProductDao">
+    <insert id="insertProduct" parameterType="cn.entity.Product" useGeneratedKeys="true"
+            keyColumn="product_id" keyProperty="product.productId">
+            INSERT INTO tb_product
+            (
+            product_name,
+            product_desc,
+            product_img,
+            price,
+            priority,
+            shop_id,
+            product_category_id,
+            praise,
+            sales,
+            product_status,
+            create_time,
+            update_time
+            )
+            VALUES
+            (
+            #{product.productName},
+            #{product.productDesc},
+            #{product.productImg},
+            #{product.price},
+            #{product.priority},
+            #{product.shopId},
+            #{product.productCategoryId},
+            #{product.praise},
+            #{product.sales},
+            #{product.productStatus},
+            now(),
+            now()
+            );
+
+    </insert>
+
+    <update id="updateProduct" parameterType="cn.entity.Product">
+        UPDATE tb_product
+        <set>
+            <if test="product.productName != null">product_name = #{product.productName},</if>
+            <if test="product.productDesc != null">product_desc = #{product.productDesc},</if>
+            <if test="product.productImg != null">product_img = #{product.productImg},</if>
+            <if test="product.price != null">price = #{product.price},</if>
+            <if test="product.priority != null">priority = #{product.priority},</if>
+            <if test="product.shopId != null">shop_id = #{product.shopId},</if>
+            <if test="product.productCategoryId != null">product_category_id = #{product.productCategoryId},</if>
+            <if test="product.praise != null">praise = #{product.praise},</if>
+            <if test="product.sales != null">sales = #{product.sales},</if>
+            <if test="product.productStatus != null">product_status = #{product.productStatus},</if>
+            <if test="product.updateTime != null">update_time = now()</if>
+        </set>
+        WHERE product_id = #{product.productId}
+    </update>
+
+    <select id="queryProductList" resultType="cn.entity.Product">
+        SELECT *
+        FROM tb_product
+        WHERE shop_id = #{shopId}
+        ORDER BY priority DESC
+    </select>
+
+    <select id="queryProductByCondition" parameterType="cn.entity.Product" resultType="cn.entity.Product">
+        SELECT *
+        FROM tb_product
+        <where>
+            <if test="productCondition.productId != null">and product_id = #{productCondition.productId}</if>
+            <if test="productCondition.productName != null">and product_name LIKE %${productCondition.productName}%</if>
+            <if test="productCondition.productDesc != null">and product_desc = #{productCondition.productDesc}</if>
+            <if test="productCondition.price != null">and price = #{productCondition.price}</if>
+            <if test="productCondition.shopId != null">and shop_id = #{productCondition.shopId}</if>
+            <if test="productCondition.productCategoryId != null">and product_category_id = #{productCondition.productCategoryId}</if>
+            <if test="productCondition.praise != null">and praise = #{productCondition.praise}</if>
+            <if test="productCondition.sales != null">and sales = #{productCondition.sales}</if>
+            <if test="productCondition.productStatus != null">and product_status = #{productCondition.productStatus}</if>
+        </where>
+        ORDER BY priority DESC
+    </select>
+    <select id="queryProductById" resultType="cn.entity.Product">
+        SELECT * FROM tb_product
+        WHERE product_id = #{productId}
+    </select>
+
+    <delete id="deleteProduct" parameterType="integer">
+        DELETE FROM tb_product
+        WHERE product_id = #{productId}
+    </delete>
+</mapper>

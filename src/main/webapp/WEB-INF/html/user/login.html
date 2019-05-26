@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>餐饮服务配送中心</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" href="../resources/css/user/login.css" />
+
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current">
+				<header class="bar bar-nav">
+					<!--<a class="button button-link button-nav pull-left back" href="#">-->
+						<!--<span class="icon icon-left"></span> 返回-->
+					<!--</a>-->
+					<h1 class='title'>欢迎登陆</h1>
+				</header>
+				<nav class="bar bar-tab">
+					<a class="tab-item external" href="/user/index">
+						<span class="icon icon-home"></span>
+						<span class="tab-label">首页</span>
+					</a>
+					<a class="tab-item external" href="/user/shopCart">
+						<span class="icon icon-cart"></span>
+						<span class="tab-label">购物车</span>
+						<!--<span class="badge">2</span>-->
+					</a>
+					<a class="tab-item external active" href="/user/personalCenter">
+						<span class="icon icon-me"></span>
+						<span class="tab-label">个人中心</span>
+					</a>
+				</nav>
+
+				<div class="content wrap">
+					<div class="content-block">
+						<h2>餐饮服务配送中心</h2>
+					</div>
+					<div class="list-block">
+						<ul>
+							<!-- 账号 -->
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="icon icon-form-name"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">账号：</div>
+										<div class="item-input">
+											<input type="text" id="account" placeholder="账号">
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<!-- 密码 -->
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="icon icon-form-name"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">密码：</div>
+										<div class="item-input">
+											<input type="password" id="password" placeholder="密码">
+										</div>
+									</div>
+								</div>
+							</li>
+
+							<!-- 验证码 -->
+							<li>
+								<div class="item-content">
+									<div class="item-media"><i class="icon icon-form-name"></i></div>
+									<div class="item-inner">
+										<div class="item-title label">验证码：</div>
+										<div class="item-input">
+											<input type="text" id="captcha" placeholder="验证码">
+										</div>
+										<img src="/Kaptcha" id="captcha_img" onclick="changeVerifyCode(this)">
+									</div>
+								</div>
+							</li>
+
+						</ul>
+						<!--lsit-block -->
+					</div>
+
+					<div class="row">
+						<div class="col-80">
+							<small><a href="/user/register" class="external color-gray">没有账号?</a></small>
+						</div>
+						<div class="col-20">
+							<small><a href="/user/forgetPassword" class="external color-gray">忘了密码?</a></small>
+						</div>
+					</div>
+					<!--组装数据提交到后台-->
+					<a href="#" id="login" class="button button-big button-fill external">登陆</a>
+
+					<!--content-->
+				</div>
+				<!-- page -->
+			</div>
+			<!-- page-group  -->
+		</div>
+
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script type="text/javascript" src='../resources/js/common/common.js'></script>
+		<script type="text/javascript" src="../resources/js/user/login.js"></script>
+
+	</body>
+
+</html>

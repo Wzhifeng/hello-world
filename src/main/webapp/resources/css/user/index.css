@@ -1,0 +1,28 @@
+.my-img-size {
+	height: 2.3rem;
+}
+
+.my-font-weight {
+	font-weight: 600;
+}
+
+.col-50>div {
+	display: inline-block;
+}
+
+.word {
+	float: left;
+}
+
+.shop-category-img {
+	float: right;
+}
+
+.my-level-padding {
+	padding: 0 0.5rem 0 0.5rem;
+}
+
+.head-line-img-size{
+	height: 12rem;
+	width: 100%;
+}
